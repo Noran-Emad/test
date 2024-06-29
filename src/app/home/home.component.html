@@ -1,0 +1,245 @@
+<!-- Carousel Start -->
+<section id="carousel">
+    <div class="container-fluid carousel-header px-0">
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item custom-carousel-item active">
+                    <img src="../../assets/img/home/Swimming.jpg" class="img-fluid" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="custom-h4 text-warning text-uppercase mb-3">Champions Choice</h4>
+                            <h2 class="display-2 text-capitalize text-white mb-3">Everything You Need In ONE Place</h2>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="btn btn-light btn-light-outline-0 rounded-pill py-3 px-5 me-4"
+                                    (click)="Login()">Get
+                                    Start</a>
+                                <a class="btn btn-warning btn-warning-outline-0 rounded-pill py-3 px-5"
+                                    routerLink="/shop">Shop
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item custom-carousel-item">
+                    <img src="../../assets/img/home/football.jpg" class="img-fluid" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="custom-h4 text-warning text-uppercase mb-3">Champions Choice</h4>
+                            <h2 class="display-2 text-capitalize text-white mb-3">Latest Sports Supplies</h2>
+                            <p class="mx-md-5 fs-4 px-5 mb-5 text-dark">
+                                Explore our latest collection of top-quality sports supplies.
+                            </p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="btn btn-light btn-light-outline-0 rounded-pill py-3 px-5 me-4"
+                                    (click)="Login()">Get
+                                    Start</a>
+                                <a class="btn btn-warning btn-warning-outline-0 rounded-pill py-3 px-5"
+                                    routerLink="/shop">Shop
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item custom-carousel-item">
+                    <img src="../../assets/img/home/cycling.jpg" class="img-fluid" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="custom-h4 text-warning text-uppercase mb-3">Champions Choice</h4>
+                            <h2 class="display-2 text-capitalize text-white">Health Folow-UP</h2>
+                            <p class="mx-md-5 fs-4 px-5 mb-5 text-dark">
+                                Stay on top of your health with our comprehensive follow-up services.
+                            </p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="btn btn-light btn-light-outline-0 rounded-pill py-3 px-5 me-4"
+                                    (click)="Login()">Get
+                                    Start</a>
+                                <a class="btn btn-warning btn-warning-outline-0 rounded-pill py-3 px-5"
+                                    routerLink="/shop">Shop
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Back to Top -->
+<a class="btn btn-warning btn-md-square rounded-circle back-to-top" (click)="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
+</a>
+
+<!-- Categories section -->
+<section>
+    <div class="category-section mt-5 mb-5">
+        <div class="container">
+            <div class="container-fluid category">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+                            <div class="section-title">
+                                <h3><span class="text-warning">Best Category</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-6" *ngFor="let item of displayedCategories; let i = index">
+                            <div class="category-item bg-light border-4 rounded p-4" [class.border-end]="i % 2 === 0"
+                                [class.border-start]="i % 2 !== 0" [class.border-warning]="true">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <div class="category-content text-end">
+                                            <h3>{{item.name}}</h3>
+                                            <p>{{item.description}}</p>
+                                            <a routerLink="/shop"
+                                                class="btn btn-warning btn-warning-outline-0 rounded-pill py-2 px-4">
+                                                See Products
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div
+                                            class="category-img d-flex align-items-center justify-content-center rounded">
+                                            <img src="{{item.imgURL}}" class="img-fluid rounded" alt="{{item.name}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-5" *ngIf="displayedCategoriesCount < items.length">
+                        <div class="col-12">
+                            <div class="category-btn text-center">
+                                <button (click)="showMoreCategories()"
+                                    class="btn btn-warning btn-warning-outline-0 rounded-pill py-3 px-5">
+                                    More Categories
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Today's Deals -->
+<section>
+    <div class="container-fluid mt-3 mb-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="text-warning">Today's Deals</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let slide of productsInSlides; let i = index"
+                        [class.active]="i === 0">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3" *ngFor="let product of slide">
+                                <div class="single-product-item">
+                                    <div class="sale"><span class='badge'
+                                            title='{{product.sale}}% Sale!'>{{product.sale}}%
+                                            Sale!</span></div>
+                                    <div class="product-image">
+                                        <a><img [src]="product.imgURL || '../../assets/img/default/default.png'"
+                                                alt=""></a>
+                                    </div>
+                                    <h3>{{product.name}}
+                                        <span *ngIf="product.quantity === 0"
+                                            style="color: #CF3537; font-size: 20px;">Out of
+                                            Stock</span>
+                                    </h3>
+                                    <span>Category: {{product.category}}</span>
+                                    <p class="old-price">
+                                        <span>${{product.price}}</span>
+                                    </p>
+                                    <p class="product-price mt-3">
+                                        ${{(product.price * (1 - product.sale / 100)).toFixed(2)}}
+                                    </p>
+                                    <a class="cart-btn" (click)="Open(product)">
+                                        <fa-icon [icon]="faShoppingCart"></fa-icon>More details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation buttons -->
+                        <button class="product-carousel-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="product-carousel-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- features list section -->
+<section>
+    <div class="list-section pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="list-box d-flex align-items-center justify-content-center">
+                        <div class="list-icon">
+                            <fa-icon [icon]="faShippingFast"></fa-icon>
+                        </div>
+                        <div class="content">
+                            <h3>Available Online & Offline</h3>
+                            <!-- <p>When order over $75</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="list-box d-flex align-items-center justify-content-center">
+                        <div class="list-icon">
+                            <fa-icon [icon]="faPhoneVolume"></fa-icon>
+                        </div>
+                        <div class="content">
+                            <h3>24/7 Support</h3>
+                            <!-- <p>Get support all day</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="list-box d-flex justify-content-center align-items-center">
+                        <div class="list-icon">
+                            <fa-icon [icon]="faMoneyBill1"></fa-icon>
+                        </div>
+                        <div class="content">
+                            <h3>Cash On Delivery</h3>
+                            <!-- <p>No credit card needed!</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end features list section -->
+</section>
